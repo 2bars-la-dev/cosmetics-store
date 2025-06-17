@@ -19,8 +19,8 @@ namespace CosmeticAPI
             var builder = WebApplication.CreateBuilder(args);
 
             var modelBuilder = new ODataConventionModelBuilder();
-            modelBuilder.EntitySet<CosmeticInformation>("CosmeticInformations");
-            modelBuilder.EntitySet<CosmeticCategory>("CosmeticCategories");
+            modelBuilder.EntitySet<CosmeticInformation>("CosmeticInformations").EntityType.HasKey(x => x.CosmeticId); ;
+            modelBuilder.EntitySet<CosmeticCategory>("CosmeticCategories").EntityType.HasKey(x => x.CategoryId);
 
 
             // Add services to the container.
